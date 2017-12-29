@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Mfinante.interogare(cui) returns the general information about the company
+Mfinante.ani_bilant(cui) returns the years where info about the balance sheet is available.
+Mfinante.bilant(cui, an) returns the balance sheet for that year.
 
 ## Development
 
