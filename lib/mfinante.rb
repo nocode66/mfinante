@@ -14,7 +14,7 @@ module Mfinante
         name: browser.div(id: 'main').table.row[1].text,
         address: browser.div(id: 'main').table.td(:index => 3).text,
         county: browser.div(id: 'main').table.td(:index => 5).text,
-        registration_number: auth_document: browser.div(id: 'main').table.td(:index => 7).text,
+        registration_number: browser.div(id: 'main').table.td(:index => 7).text,
         auth_document: browser.div(id: 'main').table.td(:index => 9).text,
         postal_code: browser.div(id: 'main').table.td(:index => 11).text
         phone: browser.div(id: 'main').table.td(:index => 13).text,
