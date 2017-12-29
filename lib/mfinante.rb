@@ -16,7 +16,7 @@ module Mfinante
         county: browser.div(id: 'main').table.td(:index => 5).text,
         registration_number: browser.div(id: 'main').table.td(:index => 7).text,
         auth_document: browser.div(id: 'main').table.td(:index => 9).text,
-        postal_code: browser.div(id: 'main').table.td(:index => 11).text
+        postal_code: browser.div(id: 'main').table.td(:index => 11).text,
         phone: browser.div(id: 'main').table.td(:index => 13).text,
         fax: browser.div(id: 'main').table.td(:index => 15).text,
         company_state: browser.div(id: 'main').table.td(:index => 17).text,
