@@ -1,7 +1,7 @@
 require "mfinante/version"
 require "watir"
 module Mfinante
-  def interogare(cui)
+  def self.interogare(cui)
     browser = Watir::Browser.new :chrome, headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
     browser.text_field(name: 'cod').set cui
@@ -42,7 +42,7 @@ module Mfinante
      end
   end
 
-  def ani_bilant(cui)
+  def self.ani_bilant(cui)
     browser = Watir::Browser.new :chrome, headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
     browser.text_field(name: 'cod').set cui
@@ -58,7 +58,7 @@ module Mfinante
     end
   end
 
-  def bilant(cui, an)
+  def self.bilant(cui, an)
     browser = Watir::Browser.new :chrome, headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
     browser.text_field(name: 'cod').set cui
