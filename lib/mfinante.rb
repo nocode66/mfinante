@@ -54,7 +54,6 @@ module Mfinante
       a=[]
       x.each do |f|
         a << f.text 
-      end
     end
   end
 
