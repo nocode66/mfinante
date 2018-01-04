@@ -54,6 +54,7 @@ module Mfinante
       a=[]
       x.each do |f|
         a << f.text 
+      end
     end
   end
 
@@ -67,9 +68,7 @@ module Mfinante
     else
       x=browser.select(name: 'an').select(an)
       browser.button(type: 'submit').click
-      {
-        browser.div(id: 'main').table.html
-      }
+      browser.div(id: 'main').table.html
     end
   end
 end
