@@ -2,13 +2,11 @@ require "mfinante/version"
 require "watir"
 module Mfinante
   def self.interogare(cui)
-    browser = Watir::Browser.new :chrome, headless: true
-    browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
-    browser.text_field(name: 'cod').set cui
-    browser.button(type: 'submit').click
+    browser = Watir::Browser.new :chrome
+    browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cui='+cui
     if browser.ol.exist? 
        result = false
-     else
+    else
       h=  {
         name: browser.div(id: 'main').table.row[1].text,
         address: browser.div(id: 'main').table.td(:index => 3).text,
@@ -39,14 +37,13 @@ module Mfinante
         mining_royalities_date: browser.div(id: 'main').table.td(:index => 53).text,
         oil_royalities_date: browser.div(id: 'main').table.td(:index => 53).text
       }
-     end
+    end
+    broser.close
   end
 
   def self.ani_bilant(cui)
-    browser = Watir::Browser.new :chrome, headless: true
-    browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
-    browser.text_field(name: 'cod').set cui
-    browser.button(type: 'submit').click
+    browser = Watir::Browser.new :chrome
+    browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cui='+cui
     if browser.ol.exist? 
       result = false
     else
@@ -56,13 +53,12 @@ module Mfinante
         a << f.text 
       end
     end
+    broser.close
   end
 
   def self.bilant(cui, an)
-    browser = Watir::Browser.new :chrome, headless: true
-    browser.goto 'http://www.mfinante.ro/infocodfiscal.html'
-    browser.text_field(name: 'cod').set cui
-    browser.button(type: 'submit').click
+    browser = Watir::Browser.new :chrome
+    browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cui='+cui
     if browser.ol.exist? 
       result = false
     else
@@ -70,5 +66,6 @@ module Mfinante
       browser.button(type: 'submit').click
       browser.div(id: 'main').table.html
     end
+    broser.close
   end
 end
