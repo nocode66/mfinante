@@ -5,7 +5,7 @@ module Mfinante
     browser = Watir::Browser.new :chrome
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cod='+cui
     if browser.ol.exist? 
-       result = false
+       h = false
     else
       h=  {
         name: browser.div(id: 'main').table.row[1].text,
@@ -38,22 +38,22 @@ module Mfinante
         oil_royalities_date: browser.div(id: 'main').table.td(:index => 53).text
       }
     end
-    broser.close
+    browser.close
+    return h
   end
 
   def self.ani_bilant(cui)
     browser = Watir::Browser.new :chrome
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cod='+cui
-    if browser.ol.exist? 
-      result = false
-    else
+    a=[]
+    unless browser.ol.exist? 
       x=browser.select(name: 'an').options.to_a
-      a=[]
       x.each do |f|
         a << f.text 
       end
     end
-    broser.close
+    browser.close
+    return a 
   end
 
   def self.bilant(cui, an)
@@ -64,8 +64,9 @@ module Mfinante
     else
       x=browser.select(name: 'an').select(an)
       browser.button(type: 'submit').click
-      browser.div(id: 'main').table.html
+      result = browser.div(id: 'main').table.html
     end
-    broser.close
+    browser.close
+    return result
   end
 end
