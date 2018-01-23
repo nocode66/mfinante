@@ -2,7 +2,7 @@ require "mfinante/version"
 require "watir"
 module Mfinante
   def self.interogare(cui)
-    browser = Watir::Browser.new :chrome
+    browser = Watir::Browser.new :chrome,  headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cod='+cui
     if browser.ol.exist? 
        h = false
@@ -43,7 +43,7 @@ module Mfinante
   end
 
   def self.ani_bilant(cui)
-    browser = Watir::Browser.new :chrome
+    browser = Watir::Browser.new :chrome, headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cod='+cui
     a=[]
     unless browser.ol.exist? 
@@ -57,7 +57,7 @@ module Mfinante
   end
 
   def self.bilant(cui, an)
-    browser = Watir::Browser.new :chrome
+    browser = Watir::Browser.new :chrome, headless: true
     browser.goto 'http://www.mfinante.ro/infocodfiscal.html?cod='+cui
     if browser.ol.exist? 
       result = false
